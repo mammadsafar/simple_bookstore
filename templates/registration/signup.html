@@ -1,3 +1,5 @@
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
 <!-- BEGIN: Head-->
@@ -92,6 +94,11 @@
 
                             <h4 class="card-title mb-1">از این جا مسیرتو پیدا کن 🚀</h4>
                             <p class="card-text mb-2">مدیریت برنامه خود را آسان و سرگرم کننده کنید!</p>
+{#                            <form class="auth-register-form mt-2" action="" method="POST" enctype="multipart/form-data">#}
+{#                                {% csrf_token %}#}
+{#                                {{ form|crispy }}#}
+{#                                <button class="btn btn-primary w-100" tabindex="5" type="submit">ثبت نام</button>#}
+{#                            </form>#}
 
                             {{ form.errors.as_ul }}
                             {{ form.non_field_errors.as_ul }}
@@ -104,7 +111,7 @@
                                         {{ form.username }}
                                     </div>
 
-                                    {#                                                                <input type="text" class="form-control" id="register-username" name="register-username" placeholder="johndoe" aria-describedby="register-username" tabindex="1" autofocus/>#}
+                                    <input type="text" class="form-control" id="register-username" name="register-username" placeholder="johndoe" aria-describedby="register-username" tabindex="1" autofocus/>
                                 </div>
                                 <div class="mb-1">
                                     <label for="register-email" class="form-label">ایمیل</label>
@@ -113,7 +120,7 @@
                                         {{ form.email }}
                                     </div>
 
-                                    {#                                                                <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>#}
+                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
                                 <div class="mb-1">
                                     <label for="register-email" class="form-label">گذرواژه</label>
@@ -122,7 +129,7 @@
                                         {{ form.password1 }}
                                         <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                     </div>
-                                    {#                                                                <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>#}
+                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
 
                                 <div class="mb-1">
@@ -130,7 +137,7 @@
 
                                     <div class="input-group input-group-merge form-password-toggle">
                                         {{ form.password2 }}
-                                        {#                                                                    <input type="password" class="form-control form-control-merge" id="register-password" name="register-password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="register-password" tabindex="3"/>#}
+                                        <input type="password" class="form-control form-control-merge" id="register-password" name="register-password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="register-password" tabindex="3"/>
                                         <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                     </div>
                                 </div>
@@ -142,7 +149,7 @@
                                         {{ form.phone_number }}
                                     </div>
 
-                                    {#                                                                <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>#}
+                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
 
                                 <div class="mb-1">
@@ -152,7 +159,7 @@
                                         {{ form.date_of_birth }}
                                     </div>
 
-                                    {#                                                                <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>#}
+                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
 
                                 <div class="mb-1">
@@ -162,7 +169,7 @@
                                         {{ form.avatar }}
                                     </div>
 
-                                    {#                                                                <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>#}
+                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
 
 
