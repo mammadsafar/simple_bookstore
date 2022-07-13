@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, UsernameField, AuthenticationForm
+from django.contrib.auth.forms import PasswordChangeForm, UserCreationForm, UserChangeForm, UsernameField, AuthenticationForm, PasswordResetForm, SetPasswordForm
 from .models import CustomUser
 
 from django import forms
@@ -60,3 +60,29 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = UserChangeForm.Meta.fields
+
+
+class UserChangePasswordForm(PasswordChangeForm):
+    old_password = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class': 'form-control', }
+    ))
+    new_password1 = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class': 'form-control', }
+    ))
+    new_password2 = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class': 'form-control', }
+    ))
+
+
+class CustomPasswordResetForm(PasswordResetForm):
+    email = forms.EmailField(widget=forms.EmailInput(
+        attrs={'class': 'form-control'}))
+
+
+class CustomPasswordResetConfirmForm(SetPasswordForm):
+    new_password1 = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class': 'form-control', }
+    ))
+    new_password2 = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class': 'form-control', }
+    ))
