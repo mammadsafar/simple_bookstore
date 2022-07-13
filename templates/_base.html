@@ -102,8 +102,10 @@
                     {% endif %}
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="#"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="message-square"></i> Chats</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="me-50" data-feather="settings"></i> Settings</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="help-circle"></i> FAQ</a>
-                    <a class="dropdown-item" href="{% url 'logout' %}"><i class="me-50" data-feather="power"></i> Logout</a>
+                    <a class="dropdown-item" href="#"><i class="me-50" data-feather="settings"></i> Settings</a>
+                    <a class="dropdown-item" href="#"><i class="me-50" data-feather="credit-card"></i> Pricing</a>
+                    <a class="dropdown-item" href="{% url 'password_change' %}"><i class="me-50" data-feather="help-circle"></i> تغییر گذرواژه</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}"><i class="me-50" data-feather="power"></i> خروج</a>
                 </div>
             </li>
         </ul>
