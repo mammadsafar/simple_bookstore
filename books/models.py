@@ -10,7 +10,7 @@ class Book(models.Model):
     )
 
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    author = models.CharField(max_length=100)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -20,6 +20,8 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+        # return f'{self.title} از {self.author}'
 
     def get_absolute_url(self):
         return reverse('home', args=[self.id])  # /book/1
