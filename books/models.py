@@ -24,4 +24,4 @@ class Book(models.Model):
         # return f'{self.title} از {self.author}'
 
     def get_absolute_url(self):
-        return reverse('home', args=[self.id])  # /book/1
+        return reverse('book_detail', args=[self.id])  # /book/1

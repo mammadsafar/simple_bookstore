@@ -1,0 +1,207 @@
+{% extends '_base.html' %}
+
+{% block title %}  لیست کتاب ها {% endblock %}
+{% block content %}
+        <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xxl p-0">
+            <div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                    <div class="row breadcrumbs-top">
+
+                    </div>
+                </div>
+                <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
+                    <div class="mb-1 breadcrumb-right">
+                    </div>
+                </div>
+            </div>
+            <div class="content-detached content-left">
+                <div class="content-body">
+                    <!-- Blog List -->
+                    <div class="blog-list-wrapper">
+                        <!-- Blog List Items -->
+                        <div class="row">
+                            {% for book in books %}
+
+
+                                <div class="col-md-6 col-12">
+                                    <div class="card">
+                                        <a href="{{ book.get_absolute_url }}">
+                                            <img class="card-img-top img-fluid" src="/{{ book.cover }}" style="width:800px; height:400px;" alt="Blog Post pic">
+                                        </a>
+                                        <div class="card-body">
+                                            <h4 class="card-title">
+                                                <a href="{{ book.get_absolute_url }}" class="blog-title-truncate text-body-heading">{{ book.title }}</a>
+                                            </h4>
+                                            <div class="d-flex">
+                                                <div class="avatar me-50">
+                                                    <img src="/static/app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" width="24" height="24">
+                                                </div>
+                                                <div class="author-info">
+                                                    <small class="text-muted me-25">by</small>
+                                                    <small><a href="#" class="text-body">{{ book.author }}</a></small>
+                                                    <span class="text-muted ms-50 me-25">|</span>
+                                                    <small class="text-muted">{{ book.created_at }}</small>
+                                                </div>
+
+                                            </div>
+                                            <div class="my-1 py-25">
+                                                <a href="#">
+                                                    <span class="badge rounded-pill badge-light-info me-50">Quote</span>
+                                                </a>
+                                                <a href="#">
+                                                    <span class="badge rounded-pill badge-light-primary">Fashion</span>
+                                                </a>
+                                            </div>
+                                            <p class="card-text blog-content-truncate">
+                                                {{ book.description|truncatechars:40 }}
+                                            </p>
+                                            <hr>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="page-blog-detail.html#blogComment">
+                                                    <div class="d-flex align-items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square font-medium-1 text-body me-50">
+                                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                                        </svg>
+                                                        <span class="text-body fw-bold">76 Comments</span>
+                                                    </div>
+                                                </a>
+                                                <a href="{{ book.get_absolute_url }}" class="fw-bold">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            {% endfor %}
+
+
+                        </div>
+                        <!--/ Blog List Items -->
+
+                        <!-- Pagination -->
+                        <div class="row">
+                            <div class="col-12">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center mt-2">
+                                        <li class="page-item prev-item"><a class="page-link" href="#"></a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item active" aria-current="page"><a class="page-link" href="#">4</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                        <li class="page-item next-item"><a class="page-link" href="#"></a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!--/ Pagination -->
+                    </div>
+                    <!--/ Blog List -->
+
+                </div>
+            </div>
+            <div class="sidebar-detached sidebar-right">
+                <div class="sidebar">
+                    <div class="blog-sidebar my-2 my-lg-0">
+                        <!-- Search bar -->
+                        <div class="blog-search">
+                            <div class="input-group input-group-merge">
+                                <input type="text" class="form-control" placeholder="Search here"/>
+                                <span class="input-group-text cursor-pointer">
+                                    <i data-feather="search"></i>
+                                </span>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- Categories -->
+                        <div class="blog-categories mt-3">
+                            <h6 class="section-label">Categories</h6>
+                            <div class="mt-1">
+                                <div class="d-flex justify-content-start align-items-center mb-75">
+                                    <a href="#" class="me-75">
+                                        <div class="avatar bg-light-primary rounded">
+                                            <div class="avatar-content">
+                                                <i data-feather="watch" class="avatar-icon font-medium-1"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="blog-category-title text-body">Fashion</div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-75">
+                                    <a href="#" class="me-75">
+                                        <div class="avatar bg-light-success rounded">
+                                            <div class="avatar-content">
+                                                <i data-feather="shopping-cart" class="avatar-icon font-medium-1"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="blog-category-title text-body">Food</div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-75">
+                                    <a href="#" class="me-75">
+                                        <div class="avatar bg-light-danger rounded">
+                                            <div class="avatar-content">
+                                                <i data-feather="command" class="avatar-icon font-medium-1"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="blog-category-title text-body">Gaming</div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center mb-75">
+                                    <a href="#" class="me-75">
+                                        <div class="avatar bg-light-info rounded">
+                                            <div class="avatar-content">
+                                                <i data-feather="hash" class="avatar-icon font-medium-1"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="blog-category-title text-body">Quote</div>
+                                    </a>
+                                </div>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <a href="#" class="me-75">
+                                        <div class="avatar bg-light-warning rounded">
+                                            <div class="avatar-content">
+                                                <i data-feather="video" class="avatar-icon font-medium-1"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="blog-category-title text-body">Video</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ Categories -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
