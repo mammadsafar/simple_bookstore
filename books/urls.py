@@ -1,10 +1,14 @@
 from django.urls import path, include
 
-from .views import BookListView, BookDetailView, BookCreateView
+from . import views
 
 urlpatterns = [
     # path("ckeditor5/", include('django_ckeditor_5.urls')),
-    path('', BookListView.as_view(), name='book_list'),
-    path('<int:pk>/', BookDetailView.as_view(), name='book_detail'),
-    path('create/', BookCreateView.as_view(), name='book_create'),
+    path('', views.BookListView.as_view(), name='book_list'),
+    path('<int:pk>/', views.BookDetailView.as_view(), name='book_detail'),
+    path('create/', views.BookCreateView.as_view(), name='book_create'),
+    path('update/<int:pk>/', views.BookUpdateView.as_view(), name='book_update'),
+    path('delete/<int:pk>/', views.BookDeleteView.as_view(), name='book_delete'),
+
+
 ]

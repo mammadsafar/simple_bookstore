@@ -37,40 +37,58 @@ class BookStoreTest(TestCase):
         self.assertContains(response, self.book2.title)
         self.assertTemplateUsed(response, 'books/book_list.html')
 
-    # def test_signup_page_status_code(self):
-    #     response = self.client.get('/accounts/signup/')
-    #     self.assertEqual(response.status_code, 200)
-    #
-    # def test_view_url_by_name(self):
-    #     response = self.client.get(reverse('signup'))
-    #     self.assertEqual(response.status_code, 200)
-    #
-    # def test_view_uses_correct_template(self):
-    #     response = self.client.get(reverse('signup'))
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'registration/signup.html')
-    #
-    # def test_signup_page_template_used(self):
-    #     response = self.client.get(reverse('signup'))
-    #     self.assertTemplateUsed(response, 'registration/signup.html')
-    #
-    # def test_signup_page_form(self):
-    #     user = get_user_model().objects.create_user(
-    #         username=self.username,
-    #         email=self.email,
-    #         password=self.password,
-    #         first_name=self.first_name,
-    #         last_name=self.last_name,
-    #         phone_number=self.phone_number,
-    #         date_of_birth=self.date_of_birth,
-    #         avatar=self.avatar
-    #     )
-    #     self.assertEqual(get_user_model().objects.all().count(), 1)
-    #     self.assertEqual(get_user_model().objects.all()[0].username, self.username)
-    #     self.assertEqual(get_user_model().objects.all()[0].email, self.email)
-    #     self.assertEqual(get_user_model().objects.all()[0].check_password(self.password), True)
-    #     self.assertEqual(get_user_model().objects.all()[0].first_name, self.first_name)
-    #     self.assertEqual(get_user_model().objects.all()[0].last_name, self.last_name)
-    #     self.assertEqual(get_user_model().objects.all()[0].phone_number, self.phone_number)
-    #     self.assertEqual(get_user_model().objects.all()[0].date_of_birth, self.date_of_birth)
-    #     self.assertEqual(get_user_model().objects.all()[0].avatar, self.avatar)
+    def test_book_detail_view(self):
+        response = self.client.get(reverse('book_detail', args=[self.book1.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.book1.title)
+        self.assertContains(response, self.book1.author)
+        self.assertContains(response, self.book1.description)
+        self.assertContains(response, self.book1.price)
+        self.assertContains(response, self.book1.cover)
+        self.assertTemplateUsed(response, 'books/book_detail.html')
+
+    def test_book_create_view(self):
+        response = self.client.get(reverse('book_create'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'books/book_create.html')
+
+    def test_book_create_form(self):
+        response = self.client.post(reverse('book_create'), {
+            'title': 'اثر مرکب',
+            'author': 'دارن هاردی',
+            'description': 'A variation on the question technique above, the multiple-choice question great way to engage your reader',
+            'price': '22.99',
+            'cover': 'media/avatars/test.jpg',
+            'status': Book.STATUS_CHOICES[0][0],  # Published
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Book.objects.count(), 3)
+
+    def test_book_update_view(self):
+        response = self.client.get(reverse('book_update', args=[self.book1.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'books/book_update.html')
+
+    def test_book_update_form(self):
+        response = self.client.post(reverse('book_update', args=[self.book1.id]), {
+            'title': 'اثر مرکب',
+            'author': 'دارن هاردی',
+            'description': 'A variation on the question technique above, the multiple-choice question great way to engage your reader',
+            'price': '22.99',
+            'cover': 'media/avatars/test.jpg',
+            'status': Book.STATUS_CHOICES[0][0],  # Published
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Book.objects.count(), 2)
+
+    def test_book_delete_view(self):
+        response = self.client.get(reverse('book_delete', args=[self.book1.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'books/book_delete.html')
+
+    def test_book_delete_form(self):
+        response = self.client.post(reverse('book_delete', args=[self.book1.id]))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Book.objects.count(), 1)
+
+

@@ -87,7 +87,7 @@
                             <h4 class="card-title mb-1">به جاذبه خوش آمدید! 👋</h4>
                             <p class="card-text mb-2">لطفا وارد حساب کاربری خود شوید</p>
                             <form class="auth-login-form mt-2" action="" method="post">
-                                {{ form.errors.as_ul }}
+{#                                {{ form.errors.as_ul }}#}
                                 {{ form.non_field_errors.as_ul }}
                                 {% csrf_token %}
                                 <div class="mb-1">

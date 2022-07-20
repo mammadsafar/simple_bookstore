@@ -83,25 +83,17 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="d-flex align-items-center me-1">
                                                     <a href="#" class="me-50">
-                                                        <i data-feather="message-square" class="font-medium-5 text-body align-middle"></i>
+                                                        <i data-feather='dollar-sign'></i>
                                                     </a>
                                                     <a href="#">
-                                                        <div class="text-body align-middle">19.1K</div>
-                                                    </a>
-                                                </div>
-                                                <div class="d-flex align-items-center">
-                                                    <a href="#" class="me-50">
-                                                        <i data-feather="bookmark" class="font-medium-5 text-body align-middle"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <div class="text-body align-middle">139</div>
+                                                        <div class="text-body align-middle">{{ book.price }}</div>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="dropdown blog-detail-share">
 
-                                                {#                                                <a href="{% url 'post_update' post.id %}" class="btn btn-gradient-warning">Edit</a>#}
-                                                {#                                                <a href="{% url 'post_delete' post.id %}" class="btn btn-gradient-danger">Delete</a>#}
+                                                                                                <a href="{% url 'book_update' book.id %}" class="btn btn-gradient-warning">Edit</a>
+                                                                                                <a href="{% url 'book_delete' book.id %}" class="btn btn-gradient-danger">Delete</a>
                                                 {#                                                <i data-feather="share-2" class="font-medium-5 text-body cursor-pointer" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>#}
                                                 {#                                                <div class="dropdown-menu dropdown-menu-end">#}
                                                 {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
