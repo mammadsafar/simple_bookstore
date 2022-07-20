@@ -1,5 +1,5 @@
 {% extends '_base.html' %}
-
+{% load book_tags %}
 
 {% block title %}
     جزییات کتاب
@@ -72,8 +72,9 @@
                                             </a>
                                         </div>
                                         <p class="card-text mb-2">
+
                                             {% autoescape off %}
-                                                {{ book.description }}
+                                                {{ book.description|linebreaks }}
                                             {% endautoescape %}
                                         </p>
 
@@ -92,8 +93,8 @@
                                             </div>
                                             <div class="dropdown blog-detail-share">
 
-                                                                                                <a href="{% url 'book_update' book.id %}" class="btn btn-gradient-warning">Edit</a>
-                                                                                                <a href="{% url 'book_delete' book.id %}" class="btn btn-gradient-danger">Delete</a>
+                                                <a href="{% url 'book_update' book.id %}" class="btn btn-gradient-warning">Edit</a>
+                                                <a href="{% url 'book_delete' book.id %}" class="btn btn-gradient-danger">Delete</a>
                                                 {#                                                <i data-feather="share-2" class="font-medium-5 text-body cursor-pointer" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>#}
                                                 {#                                                <div class="dropdown-menu dropdown-menu-end">#}
                                                 {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
