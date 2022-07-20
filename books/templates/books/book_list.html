@@ -2,7 +2,7 @@
 
 {% block title %}  لیست کتاب ها {% endblock %}
 {% block content %}
-        <div class="app-content content ">
+    <div class="app-content content ">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
@@ -29,7 +29,7 @@
                                 <div class="col-md-6 col-12">
                                     <div class="card">
                                         <a href="{{ book.get_absolute_url }}">
-                                            <img class="card-img-top img-fluid" src="/{{ book.cover }}" style="width:800px; height:400px;" alt="Blog Post pic">
+                                            <img class="card-img-top img-fluid" src="/media/{{ book.cover }}" style="width:800px; height:400px;" alt="Blog Post pic">
                                         </a>
                                         <div class="card-body">
                                             <h4 class="card-title">
@@ -56,7 +56,10 @@
                                                 </a>
                                             </div>
                                             <p class="card-text blog-content-truncate">
-                                                {{ book.description|truncatechars:40 }}
+                                                {% autoescape off %}
+                                                    {#                                                {{ book.description }}#}
+                                                    {{ book.description|truncatechars:40 }}
+                                                {% endautoescape %}
                                             </p>
                                             <hr>
                                             <div class="d-flex justify-content-between align-items-center">
@@ -117,8 +120,6 @@
                                 </span>
                             </div>
                         </div>
-
-
 
 
                         <!-- Categories -->

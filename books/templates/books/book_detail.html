@@ -13,25 +13,25 @@
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
             <div class="content-header row">
-{#                <div class="content-header-left col-md-9 col-12 mb-2">#}
-{#                    <div class="row breadcrumbs-top">#}
-{#                        <div class="col-12">#}
-{#                            <h2 class="content-header-title float-start mb-0">Blog Detail</h2>#}
-{#                            <div class="breadcrumb-wrapper">#}
-{#                                <ol class="breadcrumb">#}
-{#                                    <li class="breadcrumb-item"><a href="index.html">Home</a>#}
-{#                                    </li>#}
-{#                                    <li class="breadcrumb-item"><a href="#">Pages</a>#}
-{#                                    </li>#}
-{#                                    <li class="breadcrumb-item"><a href="#">Blog</a>#}
-{#                                    </li>#}
-{#                                    <li class="breadcrumb-item active">Detail#}
-{#                                    </li>#}
-{#                                </ol>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
+                {#                <div class="content-header-left col-md-9 col-12 mb-2">#}
+                {#                    <div class="row breadcrumbs-top">#}
+                {#                        <div class="col-12">#}
+                {#                            <h2 class="content-header-title float-start mb-0">Blog Detail</h2>#}
+                {#                            <div class="breadcrumb-wrapper">#}
+                {#                                <ol class="breadcrumb">#}
+                {#                                    <li class="breadcrumb-item"><a href="index.html">Home</a>#}
+                {#                                    </li>#}
+                {#                                    <li class="breadcrumb-item"><a href="#">Pages</a>#}
+                {#                                    </li>#}
+                {#                                    <li class="breadcrumb-item"><a href="#">Blog</a>#}
+                {#                                    </li>#}
+                {#                                    <li class="breadcrumb-item active">Detail#}
+                {#                                    </li>#}
+                {#                                </ol>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
                 <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
                     <div class="mb-1 breadcrumb-right">
                         <div class="dropdown">
@@ -49,7 +49,7 @@
                             <!-- Blog -->
                             <div class="col-12">
                                 <div class="card">
-                                    <img src="/{{ book.cover }}" class="img-fluid card-img-top" alt="Blog Detail Pic"/>
+                                    <img src="/media/{{ book.cover }}" class="img-fluid card-img-top" alt="Blog Detail Pic"/>
                                     <div class="card-body">
                                         <h4 class="card-title">{{ book.title }}</h4>
                                         <div class="d-flex">
@@ -60,7 +60,7 @@
                                                 <small class="text-muted me-25">by</small>
                                                 <small><a href="#" class="text-body">{{ book.author }}</a></small>
                                                 <span class="text-muted ms-50 me-25">|</span>
-                                                <small class="text-muted">{{ book.date_created }}</small>
+                                                <small class="text-muted">{{ book.created_at }}</small>
                                             </div>
                                         </div>
                                         <div class="my-1 py-25">
@@ -72,7 +72,9 @@
                                             </a>
                                         </div>
                                         <p class="card-text mb-2">
-                                            {{ book.description }}
+                                            {% autoescape off %}
+                                                {{ book.description }}
+                                            {% endautoescape %}
                                         </p>
 
 
@@ -98,26 +100,26 @@
                                             </div>
                                             <div class="dropdown blog-detail-share">
 
-{#                                                <a href="{% url 'post_update' post.id %}" class="btn btn-gradient-warning">Edit</a>#}
-{#                                                <a href="{% url 'post_delete' post.id %}" class="btn btn-gradient-danger">Delete</a>#}
-{#                                                <i data-feather="share-2" class="font-medium-5 text-body cursor-pointer" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>#}
-{#                                                <div class="dropdown-menu dropdown-menu-end">#}
-{#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-{#                                                        <i data-feather="github" class="font-medium-3"></i>#}
-{#                                                    </a>#}
-{#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-{#                                                        <i data-feather="gitlab" class="font-medium-3"></i>#}
-{#                                                    </a>#}
-{#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-{#                                                        <i data-feather="facebook" class="font-medium-3"></i>#}
-{#                                                    </a>#}
-{#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-{#                                                        <i data-feather="twitter" class="font-medium-3"></i>#}
-{#                                                    </a>#}
-{#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-{#                                                        <i data-feather="linkedin" class="font-medium-3"></i>#}
-{#                                                    </a>#}
-{#                                                </div>#}
+                                                {#                                                <a href="{% url 'post_update' post.id %}" class="btn btn-gradient-warning">Edit</a>#}
+                                                {#                                                <a href="{% url 'post_delete' post.id %}" class="btn btn-gradient-danger">Delete</a>#}
+                                                {#                                                <i data-feather="share-2" class="font-medium-5 text-body cursor-pointer" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>#}
+                                                {#                                                <div class="dropdown-menu dropdown-menu-end">#}
+                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
+                                                {#                                                        <i data-feather="github" class="font-medium-3"></i>#}
+                                                {#                                                    </a>#}
+                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
+                                                {#                                                        <i data-feather="gitlab" class="font-medium-3"></i>#}
+                                                {#                                                    </a>#}
+                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
+                                                {#                                                        <i data-feather="facebook" class="font-medium-3"></i>#}
+                                                {#                                                    </a>#}
+                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
+                                                {#                                                        <i data-feather="twitter" class="font-medium-3"></i>#}
+                                                {#                                                    </a>#}
+                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
+                                                {#                                                        <i data-feather="linkedin" class="font-medium-3"></i>#}
+                                                {#                                                    </a>#}
+                                                {#                                                </div>#}
                                             </div>
                                         </div>
                                     </div>
