@@ -72,7 +72,7 @@
                                     </g>
                                 </g>
                             </svg></span>
-                <h2 class="brand-text mb-0">DIKAKO</h2>
+                <h2 class="brand-text mb-0">ترم بوک</h2>
             </a></li>
         </ul>
     </div>
@@ -93,8 +93,8 @@
                         <span class="user-name fw-bolder">
                          {{ user.username }}
                         </span>
-                    <span class="user-status">Admin</span></div>
-                <span class="avatar"><img class="round" src="/static/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                    <span class="user-status">ادمین</span></div>
+                <span class="avatar"><img class="round" src="/{{ user.avatar }}" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
 
             </a>
                     {% else %}
@@ -154,16 +154,16 @@
             <!-- include /static/includes/mixins-->
             <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class="nav-item {% if request.resolver_match.url_name == 'home' %} active{% endif %}"><a class="nav-link d-flex align-items-center" href="{% url 'home' %}"><i data-feather="home"></i><span data-i18n="Home">Home</span></a></li>
-                <li class="dropdown nav-item {% if request.resolver_match.url_name == 'post_create' %} active{% endif %}" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown"><i data-feather="layout"></i><span data-i18n="Page Layouts">BLog</span></a>
+                <li class="dropdown nav-item {% if request.resolver_match.url_name == 'book_list' %} active{% endif %}" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="{% url 'book_list' %}" data-bs-toggle="dropdown"><i data-feather="layout"></i><span data-i18n="Page Layouts">Books</span></a>
                     <ul class="dropdown-menu" data-bs-popper="none">
-                        <li data-menu=""><a class="dropdown-item d-flex align-items-center {% if request.resolver_match.url_name == 'home' %} active{% endif %}" href="{% url 'home' %}" data-bs-toggle="" data-i18n="Layout Full"><span data-i18n="Layout Full">Post List</span></a>
+                        <li data-menu=""><a class="dropdown-item d-flex align-items-center {% if request.resolver_match.url_name == 'book_list' %} active{% endif %}" href="{% url 'book_list' %}" data-bs-toggle="" data-i18n="Layout Full"><span data-i18n="Layout Full">Post List</span></a>
                         </li>
-                        <li data-menu=""><a class="dropdown-item d-flex align-items-center {% if request.resolver_match.url_name == 'post_create' %} active{% endif %}" href="{% url 'home' %}" data-bs-toggle="" data-i18n="Without Menu"><span data-i18n="Without Menu">New Post</span></a>
+                        <li data-menu=""><a class="dropdown-item d-flex align-items-center {% if request.resolver_match.url_name == 'book_create' %} active{% endif %}" href="{% url 'book_create' %}" data-bs-toggle="" data-i18n="Without Menu"><span data-i18n="Without Menu">New Post</span></a>
                         </li>
-                        <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="layout-empty.html" data-bs-toggle="" data-i18n="Layout Empty"><span data-i18n="Layout Empty">Layout Empty</span></a>
-                        </li>
-                        <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="layout-blank.html" data-bs-toggle="" data-i18n="Layout Blank"><span data-i18n="Layout Blank">Layout Blank</span></a>
-                        </li>
+{#                        <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="layout-empty.html" data-bs-toggle="" data-i18n="Layout Empty"><span data-i18n="Layout Empty">Layout Empty</span></a>#}
+{#                        </li>#}
+{#                        <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="layout-blank.html" data-bs-toggle="" data-i18n="Layout Blank"><span data-i18n="Layout Blank">Layout Blank</span></a>#}
+{#                        </li>#}
                     </ul>
                 </li>
             </ul>

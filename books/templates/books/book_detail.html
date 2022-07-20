@@ -6,32 +6,52 @@
 {% endblock %}
 
 
+{% block style %}
+    <!-- BEGIN: Page CSS-->
 
+
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/vendors/css/extensions/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/vendors/css/extensions/toastr.min.css">
+
+
+
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/themes/bordered-layout.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/pages/app-ecommerce-details.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/plugins/forms/form-number-input.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
+
+    <!-- END: Page CSS-->
+{% endblock %}
 {% block content %}
-    <div class="app-content content ">
+
+
+    <div class="app-content content ecommerce-application">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
             <div class="content-header row">
-                {#                <div class="content-header-left col-md-9 col-12 mb-2">#}
-                {#                    <div class="row breadcrumbs-top">#}
-                {#                        <div class="col-12">#}
-                {#                            <h2 class="content-header-title float-start mb-0">Blog Detail</h2>#}
-                {#                            <div class="breadcrumb-wrapper">#}
-                {#                                <ol class="breadcrumb">#}
-                {#                                    <li class="breadcrumb-item"><a href="index.html">Home</a>#}
-                {#                                    </li>#}
-                {#                                    <li class="breadcrumb-item"><a href="#">Pages</a>#}
-                {#                                    </li>#}
-                {#                                    <li class="breadcrumb-item"><a href="#">Blog</a>#}
-                {#                                    </li>#}
-                {#                                    <li class="breadcrumb-item active">Detail#}
-                {#                                    </li>#}
-                {#                                </ol>#}
-                {#                            </div>#}
-                {#                        </div>#}
-                {#                    </div>#}
-                {#                </div>#}
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                    <div class="row breadcrumbs-top">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-start mb-0">Product Details</h2>
+                            <div class="breadcrumb-wrapper">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="#">eCommerce</a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="app-ecommerce-shop.html">Shop</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">Details
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
                     <div class="mb-1 breadcrumb-right">
                         <div class="dropdown">
@@ -41,300 +61,353 @@
                     </div>
                 </div>
             </div>
-            <div class="content-detached content-left">
-                <div class="content-body">
-                    <!-- Blog Detail -->
-                    <div class="blog-detail-wrapper">
-                        <div class="row">
-                            <!-- Blog -->
-                            <div class="col-12">
-                                <div class="card">
-                                    <img src="/media/{{ book.cover }}" class="img-fluid card-img-top" alt="Blog Detail Pic"/>
-                                    <div class="card-body">
-                                        <h4 class="card-title">{{ book.title }}</h4>
-                                        <div class="d-flex">
-                                            <div class="avatar me-50">
-                                                <img src="/static/app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" width="24" height="24"/>
-                                            </div>
-                                            <div class="author-info">
-                                                <small class="text-muted me-25">by</small>
-                                                <small><a href="#" class="text-body">{{ book.author }}</a></small>
-                                                <span class="text-muted ms-50 me-25">|</span>
-                                                <small class="text-muted">{{ book.created_at }}</small>
-                                            </div>
-                                        </div>
-                                        <div class="my-1 py-25">
-                                            <a href="#">
-                                                <span class="badge rounded-pill badge-light-danger me-50">Gaming</span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="badge rounded-pill badge-light-warning">Video</span>
-                                            </a>
-                                        </div>
-                                        <p class="card-text mb-2">
-
-                                            {% autoescape off %}
-                                                {{ book.description|linebreaks }}
-                                            {% endautoescape %}
-                                        </p>
-
-
-                                        <hr class="my-2"/>
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <div class="d-flex align-items-center">
-                                                <div class="d-flex align-items-center me-1">
-                                                    <a href="#" class="me-50">
-                                                        <i data-feather='dollar-sign'></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <div class="text-body align-middle">{{ book.price }}</div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown blog-detail-share">
-
-                                                <a href="{% url 'book_update' book.id %}" class="btn btn-gradient-warning">Edit</a>
-                                                <a href="{% url 'book_delete' book.id %}" class="btn btn-gradient-danger">Delete</a>
-                                                {#                                                <i data-feather="share-2" class="font-medium-5 text-body cursor-pointer" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>#}
-                                                {#                                                <div class="dropdown-menu dropdown-menu-end">#}
-                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-                                                {#                                                        <i data-feather="github" class="font-medium-3"></i>#}
-                                                {#                                                    </a>#}
-                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-                                                {#                                                        <i data-feather="gitlab" class="font-medium-3"></i>#}
-                                                {#                                                    </a>#}
-                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-                                                {#                                                        <i data-feather="facebook" class="font-medium-3"></i>#}
-                                                {#                                                    </a>#}
-                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-                                                {#                                                        <i data-feather="twitter" class="font-medium-3"></i>#}
-                                                {#                                                    </a>#}
-                                                {#                                                    <a href="#" class="dropdown-item py-50 px-1">#}
-                                                {#                                                        <i data-feather="linkedin" class="font-medium-3"></i>#}
-                                                {#                                                    </a>#}
-                                                {#                                                </div>#}
-                                            </div>
-                                        </div>
+            <div class="content-body">
+                <!-- app e-commerce details start -->
+                <section class="app-ecommerce-details">
+                    <div class="card">
+                        <!-- Product Details starts -->
+                        <div class="card-body">
+                            <div class="row my-2">
+                                <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img src="/media/{{ book.cover }}" class="img-fluid product-img" alt="product image"/>
                                     </div>
                                 </div>
-                            </div>
-                            <!--/ Blog -->
+                                <div class="col-12 col-md-7">
+                                    <h4>{{ book.title }}</h4>
+                                    <span class="card-text item-company">By <a href="#" class="company-name">{{ book.author }}</a></span>
+                                    <div class="ecommerce-details-price d-flex flex-wrap mt-1">
+                                        <h4 class="item-price me-1">${{ book.price }}</h4>
+                                        <ul class="unstyled-list list-inline ps-1 border-start">
+                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                            <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                            <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                        </ul>
+                                    </div>
+                                    <p class="card-text">Available - <span class="text-success">In stock</span></p>
+                                    <p class="card-text">
+                                        {% autoescape off %}
+                                            {{ book.description|linebreaks }}
+                                        {% endautoescape %}
+                                    </p>
+                                    <ul class="product-features list-unstyled">
+                                        <li><i data-feather="shopping-cart"></i> <span>Free Shipping</span></li>
+                                        <li>
+                                            <i data-feather="dollar-sign"></i>
+                                            <span>EMI options available</span>
+                                        </li>
+                                    </ul>
+                                    <hr/>
+                                    <div class="product-color-options">
+                                        <h6>Colors</h6>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="d-inline-block selected">
+                                                <div class="color-option b-primary">
+                                                    <div class="filloption bg-primary"></div>
+                                                </div>
+                                            </li>
+                                            <li class="d-inline-block">
+                                                <div class="color-option b-success">
+                                                    <div class="filloption bg-success"></div>
+                                                </div>
+                                            </li>
+                                            <li class="d-inline-block">
+                                                <div class="color-option b-danger">
+                                                    <div class="filloption bg-danger"></div>
+                                                </div>
+                                            </li>
+                                            <li class="d-inline-block">
+                                                <div class="color-option b-warning">
+                                                    <div class="filloption bg-warning"></div>
+                                                </div>
+                                            </li>
+                                            <li class="d-inline-block">
+                                                <div class="color-option b-info">
+                                                    <div class="filloption bg-info"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <hr/>
+                                    <div class="d-flex flex-column flex-sm-row pt-1">
+                                        <a href="#" class="btn btn-primary btn-cart me-0 me-sm-1 mb-1 mb-sm-0">
+                                            <i data-feather="shopping-cart" class="me-50"></i>
+                                            <span class="add-to-cart">Add to cart</span>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-secondary btn-wishlist me-0 me-sm-1 mb-1 mb-sm-0">
+                                            <i data-feather="heart" class="me-50"></i>
+                                            <span>Wishlist</span>
+                                        </a>
+                                        <a href="{% url 'book_update' book.id %}" class="btn btn-warning btn-wishlist me-0 me-sm-1 mb-1 mb-sm-0">
+                                            <i data-feather="edit" class="me-50"></i>
+                                            <span>Edit</span>
+                                        </a>
+                                        <a href="{% url 'book_delete' book.id %}" class="btn btn-danger btn-wishlist me-0 me-sm-1 mb-1 mb-sm-0">
+                                            <i data-feather="trash" class="me-50"></i>
+                                            <span>Delete</span>
+                                        </a>
 
-                            <!-- Blog Comment -->
-                            <div class="col-12 mt-1" id="blogComment">
-                                <h6 class="section-label mt-25">Comment</h6>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-start">
-                                            <div class="avatar me-75">
-                                                <img src="/static/app-assets/images/portrait/small/avatar-s-9.jpg" width="38" height="38" alt="Avatar"/>
-                                            </div>
-                                            <div class="author-info">
-                                                <h6 class="fw-bolder mb-25">Chad Alexander</h6>
-                                                <p class="card-text">May 24, 2020</p>
-                                                <p class="card-text">
-                                                    A variation on the question technique above, the multiple-choice question great way to engage your
-                                                    reader.
-                                                </p>
-                                                <a href="#">
-                                                    <div class="d-inline-flex align-items-center">
-                                                        <i data-feather="corner-up-left" class="font-medium-3 me-50"></i>
-                                                        <span>Reply</span>
-                                                    </div>
+
+                                        <div class="btn-group dropdown-icon-wrapper btn-share">
+                                            <button type="button" class="btn btn-icon hide-arrow btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i data-feather="share-2"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a href="#" class="dropdown-item">
+                                                    <i data-feather="facebook"></i>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <i data-feather="twitter"></i>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <i data-feather="youtube"></i>
+                                                </a>
+                                                <a href="#" class="dropdown-item">
+                                                    <i data-feather="instagram"></i>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--/ Blog Comment -->
+                        </div>
+                        <!-- Product Details ends -->
 
-                            <!-- Leave a Blog Comment -->
-                            <div class="col-12 mt-1">
-                                <h6 class="section-label mt-25">Leave a Comment</h6>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <form action="javascript:void(0)" class="form">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="mb-2">
-                                                        <input type="text" class="form-control" placeholder="Name"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="mb-2">
-                                                        <input type="email" class="form-control" placeholder="Email"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="mb-2">
-                                                        <input type="url" class="form-control" placeholder="Website"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <textarea class="form-control mb-2" rows="4" placeholder="Comment"></textarea>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-check mb-2">
-                                                        <input type="checkbox" class="form-check-input" id="blogCheckbox"/>
-                                                        <label class="form-check-label" for="blogCheckbox">Save my name, email, and website in this browser for the next time I comment.</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <button type="submit" class="btn btn-primary">Post Comment</button>
-                                                </div>
-                                            </div>
-                                        </form>
+                        <!-- Item features starts -->
+                        <div class="item-features">
+                            <div class="row text-center">
+                                <div class="col-12 col-md-4 mb-4 mb-md-0">
+                                    <div class="w-75 mx-auto">
+                                        <i data-feather="award"></i>
+                                        <h4 class="mt-2 mb-1">100% Original</h4>
+                                        <p class="card-text">Chocolate bar candy canes ice cream toffee. Croissant pie cookie halvah.</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 mb-4 mb-md-0">
+                                    <div class="w-75 mx-auto">
+                                        <i data-feather="clock"></i>
+                                        <h4 class="mt-2 mb-1">10 Day Replacement</h4>
+                                        <p class="card-text">Marshmallow biscuit donut dragée fruitcake. Jujubes wafer cupcake.</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 mb-4 mb-md-0">
+                                    <div class="w-75 mx-auto">
+                                        <i data-feather="shield"></i>
+                                        <h4 class="mt-2 mb-1">1 Year Warranty</h4>
+                                        <p class="card-text">Cotton candy gingerbread cake I love sugar plum I love sweet croissant.</p>
                                     </div>
                                 </div>
                             </div>
-                            <!--/ Leave a Blog Comment -->
+                        </div>
+                        <!-- Item features ends -->
+
+                        <!-- Related Products starts -->
+                        <div class="card-body">
+                            <div class="mt-4 mb-2 text-center">
+                                <h4>Related Products</h4>
+                                <p class="card-text">People also search for this items</p>
+                            </div>
+                            <div class="swiper-responsive-breakpoints swiper-container px-4 py-2">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <div class="item-heading">
+                                                <h5 class="text-truncate mb-0">Apple Watch Series 6</h5>
+                                                <small class="text-body">by Apple</small>
+                                            </div>
+                                            <div class="img-container w-50 mx-auto py-75">
+                                                <img src="/static/app-assets/images/elements/apple-watch.png" class="img-fluid" alt="image"/>
+                                            </div>
+                                            <div class="item-meta">
+                                                <ul class="unstyled-list list-inline mb-25">
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                                </ul>
+                                                <p class="card-text text-primary mb-0">$399.98</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <div class="item-heading">
+                                                <h5 class="text-truncate mb-0">Apple MacBook Pro - Silver</h5>
+                                                <small class="text-body">by Apple</small>
+                                            </div>
+                                            <div class="img-container w-50 mx-auto py-50">
+                                                <img src="/static/app-assets/images/elements/macbook-pro.png" class="img-fluid" alt="image"/>
+                                            </div>
+                                            <div class="item-meta">
+                                                <ul class="unstyled-list list-inline mb-25">
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                                </ul>
+                                                <p class="card-text text-primary mb-0">$2449.49</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <div class="item-heading">
+                                                <h5 class="text-truncate mb-0">Apple HomePod (Space Grey)</h5>
+                                                <small class="text-body">by Apple</small>
+                                            </div>
+                                            <div class="img-container w-50 mx-auto py-75">
+                                                <img src="/static/app-assets/images/elements/homepod.png" class="img-fluid" alt="image"/>
+                                            </div>
+                                            <div class="item-meta">
+                                                <ul class="unstyled-list list-inline mb-25">
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                                </ul>
+                                                <p class="card-text text-primary mb-0">$229.29</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <div class="item-heading">
+                                                <h5 class="text-truncate mb-0">Magic Mouse 2 - Black</h5>
+                                                <small class="text-body">by Apple</small>
+                                            </div>
+                                            <div class="img-container w-50 mx-auto py-75">
+                                                <img src="/static/app-assets/images/elements/magic-mouse.png" class="img-fluid" alt="image"/>
+                                            </div>
+                                            <div class="item-meta">
+                                                <ul class="unstyled-list list-inline mb-25">
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                </ul>
+                                                <p class="card-text text-primary mb-0">$90.98</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#">
+                                            <div class="item-heading">
+                                                <h5 class="text-truncate mb-0">iPhone 12 Pro</h5>
+                                                <small class="text-body">by Apple</small>
+                                            </div>
+                                            <div class="img-container w-50 mx-auto py-75">
+                                                <img src="/static/app-assets/images/elements/iphone-x.png" class="img-fluid" alt="image"/>
+                                            </div>
+                                            <div class="item-meta">
+                                                <ul class="unstyled-list list-inline mb-25">
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                                </ul>
+                                                <p class="card-text text-primary mb-0">$1559.99</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                        <!-- Related Products ends -->
+                    </div>
+                </section>
+                <!-- app e-commerce details end -->
+
+                <!-- Blog Comment -->
+                <div class="col-12 mt-1" id="blogComment">
+                    <h6 class="section-label mt-25">Comment</h6>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="avatar me-75">
+                                    <img src="/static/app-assets/images/portrait/small/avatar-s-9.jpg" width="38" height="38" alt="Avatar"/>
+                                </div>
+                                <div class="author-info">
+                                    <h6 class="fw-bolder mb-25">Chad Alexander</h6>
+                                    <p class="card-text">May 24, 2020</p>
+                                    <p class="card-text">
+                                        A variation on the question technique above, the multiple-choice question great way to engage your
+                                        reader.
+                                    </p>
+{#                                    <a href="#">#}
+{#                                        <div class="d-inline-flex align-items-center">#}
+{#                                            <i data-feather="corner-up-left" class="font-medium-3 me-50"></i>#}
+{#                                            <span>Reply</span>#}
+{#                                        </div>#}
+{#                                    </a>#}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!--/ Blog Detail -->
-
                 </div>
-            </div>
-            <div class="sidebar-detached sidebar-right">
-                <div class="sidebar">
-                    <div class="blog-sidebar my-2 my-lg-0">
-                        <!-- Search bar -->
-                        <div class="blog-search">
-                            <div class="input-group input-group-merge">
-                                <input type="text" class="form-control" placeholder="Search here"/>
-                                <span class="input-group-text cursor-pointer">
-                                    <i data-feather="search"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <!--/ Search bar -->
+                <!--/ Blog Comment -->
 
-                        <!-- Recent Posts -->
-                        <div class="blog-recent-posts mt-3">
-                            <h6 class="section-label">Recent Posts</h6>
-                            <div class="mt-75">
-                                <div class="d-flex mb-2">
-                                    <a href="page-blog-detail.html" class="me-2">
-                                        <img class="rounded" src="/static/app-assets/images/banner/banner-22.jpg" width="100" height="70" alt="Recent Post Pic"/>
-                                    </a>
-                                    <div class="blog-info">
-                                        <h6 class="blog-recent-post-title">
-                                            <a href="page-blog-detail.html" class="text-body-heading">Why Should Forget Facebook?</a>
-                                        </h6>
-                                        <div class="text-muted mb-0">Jan 14 2020</div>
+                <!-- Leave a Blog Comment -->
+                <div class="col-12 mt-1">
+                    <h6 class="section-label mt-25">Leave a Comment</h6>
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="javascript:void(0)" class="form">
+                                <div class="row">
+                                    <div class="col-sm-6 col-12">
+                                        <div class="mb-2">
+                                            <input type="text" class="form-control" placeholder="Name"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-12">
+                                        <div class="mb-2">
+                                            <input type="email" class="form-control" placeholder="Email"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-12">
+                                        <div class="mb-2">
+                                            <input type="url" class="form-control" placeholder="Website"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control mb-2" rows="4" placeholder="Comment"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check mb-2">
+                                            <input type="checkbox" class="form-check-input" id="blogCheckbox"/>
+                                            <label class="form-check-label" for="blogCheckbox">Save my name, email, and website in this browser for the next time I comment.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">Post Comment</button>
                                     </div>
                                 </div>
-                                <div class="d-flex mb-2">
-                                    <a href="page-blog-detail.html" class="me-2">
-                                        <img class="rounded" src="/static/app-assets/images/banner/banner-27.jpg" width="100" height="70" alt="Recent Post Pic"/>
-                                    </a>
-                                    <div class="blog-info">
-                                        <h6 class="blog-recent-post-title">
-                                            <a href="page-blog-detail.html" class="text-body-heading">Publish your passions, your way</a>
-                                        </h6>
-                                        <div class="text-muted mb-0">Mar 04 2020</div>
-                                    </div>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <a href="page-blog-detail.html" class="me-2">
-                                        <img class="rounded" src="/static/app-assets/images/banner/banner-39.jpg" width="100" height="70" alt="Recent Post Pic"/>
-                                    </a>
-                                    <div class="blog-info">
-                                        <h6 class="blog-recent-post-title">
-                                            <a href="page-blog-detail.html" class="text-body-heading">The Best Ways to Retain More</a>
-                                        </h6>
-                                        <div class="text-muted mb-0">Feb 18 2020</div>
-                                    </div>
-                                </div>
-                                <div class="d-flex">
-                                    <a href="page-blog-detail.html" class="me-2">
-                                        <img class="rounded" src="/static/app-assets/images/banner/banner-35.jpg" width="100" height="70" alt="Recent Post Pic"/>
-                                    </a>
-                                    <div class="blog-info">
-                                        <h6 class="blog-recent-post-title">
-                                            <a href="page-blog-detail.html" class="text-body-heading">Share a Shocking Fact or Statistic</a>
-                                        </h6>
-                                        <div class="text-muted mb-0">Oct 08 2020</div>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                        <!--/ Recent Posts -->
-
-                        <!-- Categories -->
-                        <div class="blog-categories mt-3">
-                            <h6 class="section-label">Categories</h6>
-                            <div class="mt-1">
-                                <div class="d-flex justify-content-start align-items-center mb-75">
-                                    <a href="#" class="me-75">
-                                        <div class="avatar bg-light-primary rounded">
-                                            <div class="avatar-content">
-                                                <i data-feather="watch" class="avatar-icon font-medium-1"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="blog-category-title text-body">Fashion</div>
-                                    </a>
-                                </div>
-                                <div class="d-flex justify-content-start align-items-center mb-75">
-                                    <a href="#" class="me-75">
-                                        <div class="avatar bg-light-success rounded">
-                                            <div class="avatar-content">
-                                                <i data-feather="shopping-cart" class="avatar-icon font-medium-1"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="blog-category-title text-body">Food</div>
-                                    </a>
-                                </div>
-                                <div class="d-flex justify-content-start align-items-center mb-75">
-                                    <a href="#" class="me-75">
-                                        <div class="avatar bg-light-danger rounded">
-                                            <div class="avatar-content">
-                                                <i data-feather="command" class="avatar-icon font-medium-1"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="blog-category-title text-body">Gaming</div>
-                                    </a>
-                                </div>
-                                <div class="d-flex justify-content-start align-items-center mb-75">
-                                    <a href="#" class="me-75">
-                                        <div class="avatar bg-light-info rounded">
-                                            <div class="avatar-content">
-                                                <i data-feather="hash" class="avatar-icon font-medium-1"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="blog-category-title text-body">Quote</div>
-                                    </a>
-                                </div>
-                                <div class="d-flex justify-content-start align-items-center">
-                                    <a href="#" class="me-75">
-                                        <div class="avatar bg-light-warning rounded">
-                                            <div class="avatar-content">
-                                                <i data-feather="video" class="avatar-icon font-medium-1"></i>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#">
-                                        <div class="blog-category-title text-body">Video</div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/ Categories -->
                     </div>
-
                 </div>
+                <!--/ Leave a Blog Comment -->
             </div>
         </div>
     </div>
 
 {% endblock %}
 
-
+{% block script %}
+    <script src="/static/app-assets/vendors/js/extensions/wNumb.min.js"></script>
+    <script src="/static/app-assets/vendors/js/extensions/swiper.min.js"></script>
+    <script src="/static/app-assets/vendors/js/extensions/toastr.min.js"></script>
+    <!-- BEGIN: Page JS-->
+    <script src="/static/app-assets/js/scripts/pages/app-ecommerce-details.js"></script>
+    <script src="/static/app-assets/js/scripts/forms/form-number-input.js"></script>
+    <!-- END: Page JS-->
+{% endblock %}
