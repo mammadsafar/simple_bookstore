@@ -1,4 +1,5 @@
 {% load crispy_forms_tags %}
+{% load static %}
 
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="rtl">
@@ -12,39 +13,40 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Register Page</title>
-    <link rel="apple-touch-icon" href="/static/app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/static/app-assets/images/ico/favicon.ico">
+
+    <link rel="apple-touch-icon" href="{% static '/app-assets/images/ico/apple-icon-120.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/app-assets/images/ico/favicon.ico' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/vendors/css/vendors-rtl.min.css' %}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/colors.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/components.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/bootstrap-extended.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/colors.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/components.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/themes/dark-layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/themes/bordered-layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/themes/semi-dark-layout.css' %}">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/plugins/forms/form-validation.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/pages/authentication.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/plugins/forms/form-validation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/pages/authentication.css' %}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/vendors/css/pickers/pickadate/pickadate.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/plugins/forms/pickers/form-flat-pickr.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/plugins/forms/pickers/form-pickadate.css">
-
-
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/custom-rtl.css">
-    <link rel="stylesheet" type="text/css" href="/static/assets/css/style-rtl.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/custom-rtl.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/style-rtl.css' %}">
     <!-- END: Custom CSS-->
+
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/vendors/css/pickers/pickadate/pickadate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/plugins/forms/pickers/form-flat-pickr.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/plugins/forms/pickers/form-pickadate.css' %}">
+
 
 </head>
 <!-- END: Head-->
@@ -94,11 +96,11 @@
 
                             <h4 class="card-title mb-1">از این جا مسیرتو پیدا کن 🚀</h4>
                             <p class="card-text mb-2">مدیریت برنامه خود را آسان و سرگرم کننده کنید!</p>
-{#                            <form class="auth-register-form mt-2" action="" method="POST" enctype="multipart/form-data">#}
-{#                                {% csrf_token %}#}
-{#                                {{ form|crispy }}#}
-{#                                <button class="btn btn-primary w-100" tabindex="5" type="submit">ثبت نام</button>#}
-{#                            </form>#}
+                            {#                            <form class="auth-register-form mt-2" action="" method="POST" enctype="multipart/form-data">#}
+                            {#                                {% csrf_token %}#}
+                            {#                                {{ form|crispy }}#}
+                            {#                                <button class="btn btn-primary w-100" tabindex="5" type="submit">ثبت نام</button>#}
+                            {#                            </form>#}
 
                             {{ form.errors.as_ul }}
                             {{ form.non_field_errors.as_ul }}
@@ -110,8 +112,6 @@
 
                                         {{ form.username }}
                                     </div>
-
-                                    <input type="text" class="form-control" id="register-username" name="register-username" placeholder="johndoe" aria-describedby="register-username" tabindex="1" autofocus/>
                                 </div>
                                 <div class="mb-1">
                                     <label for="register-email" class="form-label">ایمیل</label>
@@ -119,8 +119,6 @@
 
                                         {{ form.email }}
                                     </div>
-
-                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
                                 <div class="mb-1">
                                     <label for="register-email" class="form-label">گذرواژه</label>
@@ -129,7 +127,6 @@
                                         {{ form.password1 }}
                                         <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
 
                                 <div class="mb-1">
@@ -137,7 +134,6 @@
 
                                     <div class="input-group input-group-merge form-password-toggle">
                                         {{ form.password2 }}
-                                        <input type="password" class="form-control form-control-merge" id="register-password" name="register-password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="register-password" tabindex="3"/>
                                         <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                     </div>
                                 </div>
@@ -149,7 +145,6 @@
                                         {{ form.phone_number }}
                                     </div>
 
-                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
 
                                 <div class="mb-1">
@@ -159,7 +154,6 @@
                                         {{ form.date_of_birth }}
                                     </div>
 
-                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
 
                                 <div class="mb-1">
@@ -169,7 +163,6 @@
                                         {{ form.avatar }}
                                     </div>
 
-                                    <input type="text" class="form-control" id="register-email" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2"/>
                                 </div>
 
 
@@ -222,32 +215,33 @@
 
 
 <!-- BEGIN: Vendor JS-->
-<script src="/static/app-assets/vendors/js/vendors.min.js"></script>
+<script src="{% static '/app-assets/vendors/js/vendors.min.js' %}"></script>
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="/static/app-assets/vendors/js/ui/jquery.sticky.js"></script>
-<script src="/static/app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+<script src="{% static '/app-assets/vendors/js/ui/jquery.sticky.js' %}"></script>
+<script src="{% static '/app-assets/vendors/js/forms/validation/jquery.validate.min.js' %}"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
-<script src="/static/app-assets/js/core/app-menu.js"></script>
-<script src="/static/app-assets/js/core/app.js"></script>
+<script src="{% static '/app-assets/js/core/app-menu.js' %}"></script>
+<script src="{% static '/app-assets/js/core/app.js' %}"></script>
 <!-- END: Theme JS-->
 
+
 <!-- BEGIN: Page JS-->
-<script src="/static/app-assets/js/scripts/pages/auth-register.js"></script>
+<script src="{% static '/app-assets/js/scripts/pages/auth-register.js' %}"></script>
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="/static/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
-<script src="/static/app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
-<script src="/static/app-assets/vendors/js/pickers/pickadate/picker.time.js"></script>
-<script src="/static/app-assets/vendors/js/pickers/pickadate/legacy.js"></script>
-<script src="/static/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+<script src="{% static '/app-assets/vendors/js/pickers/pickadate/picker.js' %}"></script>
+<script src="{% static '/app-assets/vendors/js/pickers/pickadate/picker.date.js' %}"></script>
+<script src="{% static '/app-assets/vendors/js/pickers/pickadate/picker.time.js' %}"></script>
+<script src="{% static '/app-assets/vendors/js/pickers/pickadate/legacy.js' %}"></script>
+<script src="{% static '/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js' %}"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Page JS-->
-<script src="/static/app-assets/js/scripts/forms/pickers/form-pickers.js"></script>
+<script src="{% static '/app-assets/js/scripts/forms/pickers/form-pickers.js' %}"></script>
 <!-- END: Page JS-->
 
 <!-- END: Page JS-->
