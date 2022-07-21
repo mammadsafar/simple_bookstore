@@ -69,11 +69,11 @@
                         <!-- Product Details starts -->
                         <div class="card-body">
                             <div class="row my-2">
-                                <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
+                                <div class="col-12 col-md-5  mb-2 mb-md-0 mt-0">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <a href="{{ book.get_absolute_url }}">
                                             {% if book.cover %}
-                                                <img src="/{{ book.cover }}" class="img-fluid product-img" alt="product image"/>
+                                                <img src="/media/{{ book.cover }}" class="img-fluid product-img" alt="product image"/>
                                             {% else %}
                                                 <img src="/media/covers/cover.png" class="img-fluid product-img" alt="product image"/>
                                             {% endif %}

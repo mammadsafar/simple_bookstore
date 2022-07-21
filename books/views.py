@@ -8,6 +8,7 @@ from .forms import CostumeBookUpdate
 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 3
     template_name = 'books/book_list.html'
     context_object_name = 'books'
 

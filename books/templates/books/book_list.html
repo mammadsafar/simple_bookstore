@@ -25,33 +25,33 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
-{#            <div class="content-header row">#}
-{#                <div class="content-header-left col-md-9 col-12 mb-2">#}
-{#                    <div class="row breadcrumbs-top">#}
-{#                        <div class="col-12">#}
-{#                            <h2 class="content-header-title float-start mb-0">Shop</h2>#}
-{#                            <div class="breadcrumb-wrapper">#}
-{#                                <ol class="breadcrumb">#}
-{#                                    <li class="breadcrumb-item"><a href="index.html">Home</a>#}
-{#                                    </li>#}
-{#                                    <li class="breadcrumb-item"><a href="#">eCommerce</a>#}
-{#                                    </li>#}
-{#                                    <li class="breadcrumb-item active">Shop#}
-{#                                    </li>#}
-{#                                </ol>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">#}
-{#                    <div class="mb-1 breadcrumb-right">#}
-{#                        <div class="dropdown">#}
-{#                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="grid"></i></button>#}
-{#                            <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="app-todo.html"><i class="me-1" data-feather="check-square"></i><span class="align-middle">Todo</span></a><a class="dropdown-item" href="app-chat.html"><i class="me-1" data-feather="message-square"></i><span class="align-middle">Chat</span></a><a class="dropdown-item" href="app-email.html"><i class="me-1" data-feather="mail"></i><span class="align-middle">Email</span></a><a class="dropdown-item" href="app-calendar.html"><i class="me-1" data-feather="calendar"></i><span class="align-middle">Calendar</span></a></div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
+            {#            <div class="content-header row">#}
+            {#                <div class="content-header-left col-md-9 col-12 mb-2">#}
+            {#                    <div class="row breadcrumbs-top">#}
+            {#                        <div class="col-12">#}
+            {#                            <h2 class="content-header-title float-start mb-0">Shop</h2>#}
+            {#                            <div class="breadcrumb-wrapper">#}
+            {#                                <ol class="breadcrumb">#}
+            {#                                    <li class="breadcrumb-item"><a href="index.html">Home</a>#}
+            {#                                    </li>#}
+            {#                                    <li class="breadcrumb-item"><a href="#">eCommerce</a>#}
+            {#                                    </li>#}
+            {#                                    <li class="breadcrumb-item active">Shop#}
+            {#                                    </li>#}
+            {#                                </ol>#}
+            {#                            </div>#}
+            {#                        </div>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#                <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">#}
+            {#                    <div class="mb-1 breadcrumb-right">#}
+            {#                        <div class="dropdown">#}
+            {#                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="grid"></i></button>#}
+            {#                            <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="app-todo.html"><i class="me-1" data-feather="check-square"></i><span class="align-middle">Todo</span></a><a class="dropdown-item" href="app-chat.html"><i class="me-1" data-feather="message-square"></i><span class="align-middle">Chat</span></a><a class="dropdown-item" href="app-email.html"><i class="me-1" data-feather="mail"></i><span class="align-middle">Email</span></a><a class="dropdown-item" href="app-calendar.html"><i class="me-1" data-feather="calendar"></i><span class="align-middle">Calendar</span></a></div>#}
+            {#                        </div>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#            </div>#}
             <div class="content-detached content-right">
                 <div class="content-body">
                     <!-- E-commerce Content Section Starts -->
@@ -110,13 +110,13 @@
                     <section id="ecommerce-products" class="grid-view">
                         {% for book in books %}
                             <div class="card ecommerce-card">
-                                <div class="item-img text-center">
-                                    <a href="{{ book.get_absolute_url }}">
+                                <div class="item-img text-center d-flex justify-content-center">
+                                    <a class="" href="{{ book.get_absolute_url }}">
                                         {% if book.cover %}
-                                        <img class="img-fluid card-img-top" src="/{{ book.cover }}" alt="img-placeholder"/></a>
-                                    {% else %}
-                                        <img class="img-fluid card-img-top" src="/media/covers/cover.png" alt="img-placeholder"/></a>
-                                    {% endif %}
+                                            <img class="img-fluid card-img-top" src="/media/{{ book.cover }}" alt="img-placeholder"/></a>
+                                        {% else %}
+                                            <img class="img-fluid card-img-top" src="/media/covers/cover.png" alt="img-placeholder"/></a>
+                                        {% endif %}
                                 </div>
                                 <div class="card-body">
                                     <div class="item-wrapper">
@@ -169,17 +169,29 @@
                     <section id="ecommerce-pagination">
                         <div class="row">
                             <div class="col-sm-12">
-                                <nav aria-label="Page navigation example">
+                                <nav aria-label="Page navigation">
                                     <ul class="pagination justify-content-center mt-2">
-                                        <li class="page-item prev-item"><a class="page-link" href="#"></a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item" aria-current="page"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                        <li class="page-item next-item"><a class="page-link" href="#"></a></li>
+                                        {% if page_obj.has_previous %}
+
+                                            <li class="page-item prev-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"></a></li>
+                                        {% endif %}
+
+{#                                        <li class="page-item"><a class="page-link" href="#">1</a></li>#}
+{#                                        <li class="page-item"><a class="page-link" href="#">2</a></li>#}
+{#                                        <li class="page-item"><a class="page-link" href="#">3</a></li>#}
+
+                                        <li class="page-item active" aria-current="page">
+                                            <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a>
+                                        </li>
+
+{#                                        <li class="page-item"><a class="page-link" href="#">5</a></li>#}
+{#                                        <li class="page-item"><a class="page-link" href="#">6</a></li>#}
+{#                                        <li class="page-item"><a class="page-link" href="#">7</a></li>#}
+
+                                        {% if page_obj.has_next %}
+                                            <li class="page-item next-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}"></a></li>
+                                        {% endif %}
+
                                     </ul>
                                 </nav>
                             </div>
@@ -251,24 +263,24 @@
                                 <div id="product-categories">
                                     <h6 class="filter-title">Categories</h6>
                                     <ul class="list-unstyled categories-list">
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="radio" id="category1" name="category-filter" class="form-check-input" checked/>
-                                                <label class="form-check-label" for="category1">Appliances</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="radio" id="category2" name="category-filter" class="form-check-input"/>
-                                                <label class="form-check-label" for="category2">Audio</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="radio" id="category3" name="category-filter" class="form-check-input"/>
-                                                <label class="form-check-label" for="category3">Cameras & Camcorders</label>
-                                            </div>
-                                        </li>
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="radio" id="category1" name="category-filter" class="form-check-input" checked/>#}
+{#                                                <label class="form-check-label" for="category1">Appliances</label>#}
+{#                                            </div>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="radio" id="category2" name="category-filter" class="form-check-input"/>#}
+{#                                                <label class="form-check-label" for="category2">Audio</label>#}
+{#                                            </div>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="radio" id="category3" name="category-filter" class="form-check-input"/>#}
+{#                                                <label class="form-check-label" for="category3">Cameras & Camcorders</label>#}
+{#                                            </div>#}
+{#                                        </li>#}
                                         <li>
                                             <div class="form-check">
                                                 <input type="radio" id="category4" name="category-filter" class="form-check-input"/>
@@ -316,139 +328,139 @@
                                 <!-- Categories Ends -->
 
                                 <!-- Brands starts -->
-                                <div class="brands">
-                                    <h6 class="filter-title">Brands</h6>
-                                    <ul class="list-unstyled brand-list">
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand1"/>
-                                                <label class="form-check-label" for="productBrand1">Insignia™</label>
-                                            </div>
-                                            <span>746</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand2" checked/>
-                                                <label class="form-check-label" for="productBrand2">Samsung</label>
-                                            </div>
-                                            <span>633</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand3"/>
-                                                <label class="form-check-label" for="productBrand3">Metra</label>
-                                            </div>
-                                            <span>591</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand4"/>
-                                                <label class="form-check-label" for="productBrand4">HP</label>
-                                            </div>
-                                            <span>530</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand5" checked/>
-                                                <label class="form-check-label" for="productBrand5">Apple</label>
-                                            </div>
-                                            <span>442</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand6"/>
-                                                <label class="form-check-label" for="productBrand6">GE</label>
-                                            </div>
-                                            <span>394</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand7"/>
-                                                <label class="form-check-label" for="productBrand7">Sony</label>
-                                            </div>
-                                            <span>350</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand8"/>
-                                                <label class="form-check-label" for="productBrand8">Incipio</label>
-                                            </div>
-                                            <span>320</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand9"/>
-                                                <label class="form-check-label" for="productBrand9">KitchenAid</label>
-                                            </div>
-                                            <span>318</span>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="productBrand10"/>
-                                                <label class="form-check-label" for="productBrand10">Whirlpool</label>
-                                            </div>
-                                            <span>298</span>
-                                        </li>
-                                    </ul>
-                                </div>
+{#                                <div class="brands">#}
+{#                                    <h6 class="filter-title">Brands</h6>#}
+{#                                    <ul class="list-unstyled brand-list">#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand1"/>#}
+{#                                                <label class="form-check-label" for="productBrand1">Insignia™</label>#}
+{#                                            </div>#}
+{#                                            <span>746</span>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand2" checked/>#}
+{#                                                <label class="form-check-label" for="productBrand2">Samsung</label>#}
+{#                                            </div>#}
+{#                                            <span>633</span>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand3"/>#}
+{#                                                <label class="form-check-label" for="productBrand3">Metra</label>#}
+{#                                            </div>#}
+{#                                            <span>591</span>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand4"/>#}
+{#                                                <label class="form-check-label" for="productBrand4">HP</label>#}
+{#                                            </div>#}
+{#                                            <span>530</span>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand5" checked/>#}
+{#                                                <label class="form-check-label" for="productBrand5">Apple</label>#}
+{#                                            </div>#}
+{#                                            <span>442</span>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand6"/>#}
+{#                                                <label class="form-check-label" for="productBrand6">GE</label>#}
+{#                                            </div>#}
+{#                                            <span>394</span>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand7"/>#}
+{#                                                <label class="form-check-label" for="productBrand7">Sony</label>#}
+{#                                            </div>#}
+{#                                            <span>350</span>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand8"/>#}
+{#                                                <label class="form-check-label" for="productBrand8">Incipio</label>#}
+{#                                            </div>#}
+{#                                            <span>320</span>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand9"/>#}
+{#                                                <label class="form-check-label" for="productBrand9">KitchenAid</label>#}
+{#                                            </div>#}
+{#                                            <span>318</span>#}
+{#                                        </li>#}
+{#                                        <li>#}
+{#                                            <div class="form-check">#}
+{#                                                <input type="checkbox" class="form-check-input" id="productBrand10"/>#}
+{#                                                <label class="form-check-label" for="productBrand10">Whirlpool</label>#}
+{#                                            </div>#}
+{#                                            <span>298</span>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
                                 <!-- Brand ends -->
 
                                 <!-- Rating starts -->
-                                <div id="ratings">
-                                    <h6 class="filter-title">Ratings</h6>
-                                    <div class="ratings-list">
-                                        <a href="#">
-                                            <ul class="unstyled-list list-inline">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li>& up</li>
-                                            </ul>
-                                        </a>
-                                        <div class="stars-received">160</div>
-                                    </div>
-                                    <div class="ratings-list">
-                                        <a href="#">
-                                            <ul class="unstyled-list list-inline">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li>& up</li>
-                                            </ul>
-                                        </a>
-                                        <div class="stars-received">176</div>
-                                    </div>
-                                    <div class="ratings-list">
-                                        <a href="#">
-                                            <ul class="unstyled-list list-inline">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li>& up</li>
-                                            </ul>
-                                        </a>
-                                        <div class="stars-received">291</div>
-                                    </div>
-                                    <div class="ratings-list">
-                                        <a href="#">
-                                            <ul class="unstyled-list list-inline">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li>& up</li>
-                                            </ul>
-                                        </a>
-                                        <div class="stars-received">190</div>
-                                    </div>
-                                </div>
+{#                                <div id="ratings">#}
+{#                                    <h6 class="filter-title">Ratings</h6>#}
+{#                                    <div class="ratings-list">#}
+{#                                        <a href="#">#}
+{#                                            <ul class="unstyled-list list-inline">#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li>& up</li>#}
+{#                                            </ul>#}
+{#                                        </a>#}
+{#                                        <div class="stars-received">160</div>#}
+{#                                    </div>#}
+{#                                    <div class="ratings-list">#}
+{#                                        <a href="#">#}
+{#                                            <ul class="unstyled-list list-inline">#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li>& up</li>#}
+{#                                            </ul>#}
+{#                                        </a>#}
+{#                                        <div class="stars-received">176</div>#}
+{#                                    </div>#}
+{#                                    <div class="ratings-list">#}
+{#                                        <a href="#">#}
+{#                                            <ul class="unstyled-list list-inline">#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li>& up</li>#}
+{#                                            </ul>#}
+{#                                        </a>#}
+{#                                        <div class="stars-received">291</div>#}
+{#                                    </div>#}
+{#                                    <div class="ratings-list">#}
+{#                                        <a href="#">#}
+{#                                            <ul class="unstyled-list list-inline">#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>#}
+{#                                                <li>& up</li>#}
+{#                                            </ul>#}
+{#                                        </a>#}
+{#                                        <div class="stars-received">190</div>#}
+{#                                    </div>#}
+{#                                </div>#}
                                 <!-- Rating ends -->
 
                                 <!-- Clear Filters Starts -->

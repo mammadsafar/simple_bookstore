@@ -98,13 +98,6 @@
                                             </div>
                                         </div>
                                         <div class="col-6">
-                                            <label class="form-label" for="post_title">Text</label>
-                                            <div class="input-group form-password-toggle mb-2">
-                                                {{ form.description }}
-                                                {#{{ block.super }}#}
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
                                             <label class="form-label" for="post_title">Author</label>
                                             <div class="input-group form-password-toggle mb-2">
                                                 {{ form.author }}
@@ -129,6 +122,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="col-12">
+                                            <label class="form-label" for="post_title">Text</label>
+                                            <div class="input-group form-password-toggle mb-2">
+                                                {{ form.description }}
+                                                {#{{ block.super }}#}
+                                            </div>
+                                        </div>
                                         <div class="col-6">
                                             <div class="input-group form-password-toggle mb-2">
                                                 <button type="submit" class="form-control" id="post_title">Save</button>
