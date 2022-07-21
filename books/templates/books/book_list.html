@@ -112,7 +112,11 @@
                             <div class="card ecommerce-card">
                                 <div class="item-img text-center">
                                     <a href="{{ book.get_absolute_url }}">
+                                        {% if book.cover %}
                                         <img class="img-fluid card-img-top" src="/{{ book.cover }}" alt="img-placeholder"/></a>
+                                    {% else %}
+                                        <img class="img-fluid card-img-top" src="/media/covers/cover.png" alt="img-placeholder"/></a>
+                                    {% endif %}
                                 </div>
                                 <div class="card-body">
                                     <div class="item-wrapper">

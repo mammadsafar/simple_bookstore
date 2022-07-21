@@ -24,7 +24,7 @@ class Book(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     status = models.CharField(choices=STATUS_CHOICES, max_length=3)
-    cover = models.ImageField(upload_to='media/covers/', blank=True)
+    cover = models.ImageField(upload_to='covers/', blank=True)
 
     def __str__(self):
         return self.title
