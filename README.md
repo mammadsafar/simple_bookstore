@@ -2,8 +2,7 @@
 
 Book List Page
 
-[//]: # (![alt text]&#40;../blog_site/Post_List.png &#41;)
-![alt text]('./Book_List.png')
+![alt text](./images/Book_List.png)
 
 ## Setup
 
