@@ -34,10 +34,11 @@ class Book(models.Model):
 
 class Comment(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, related_name='comments', on_delete=models.CASCADE)
     text = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.text
+
+def __str__(self):
+    return self.text
