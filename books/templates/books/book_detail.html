@@ -337,17 +337,24 @@
 
                 <!-- Blog Comment -->
                 <div class="col-12 mt-1" id="blogComment">
-                    <h6 class="section-label mt-25">Comment</h6>
+                    <h6 class="section-label mt-25">نظرات</h6>
                     <div class="card">
                         <div class="card-body">
                             {% for comment in comments %}
                             <div class="d-flex align-items-start mt-2">
                                 <div class="avatar me-75">
-                                    <img src="/{{ comment.user.avatar }}" width="38" height="38" alt="Avatar"/>
+                                    <img src="/media/{{ comment.user.avatar }}" width="38" height="38" alt="Avatar"/>
                                 </div>
                                 <div class="author-info">
                                     <h6 class="fw-bolder mb-25">{{ comment.user.username }}</h6>
-                                    <p class="card-text">{{ comment.created_at|date:'Y d M' }}</p>
+                                    <p class="card-text">{{ comment.created_at|date:'Y d M' }} |
+                                    {% if comment.recommended %}
+                                        <span class="text-success">این کتاب را توصیه میکنم</span>
+                                    {% else %}
+                                        <span class="text-danger">این کتاب را توصیه نمیکنم</span>
+                                    {% endif %}
+
+                                    </p>
                                     <p class="card-text">
                                        {{ comment.text }}
                                     </p>
@@ -366,38 +373,38 @@
                 <!--/ Blog Comment -->
 
                 <!-- Leave a Blog Comment -->
-                <div class="col-12 mt-1">
-                    <h6 class="section-label mt-25">Leave a Comment</h6>
+                <div class="col-12 mt-1 mb-4">
+                    <h6 class="section-label mt-25">نظر خود را وارد کنید </h6>
                     <div class="card">
                         <div class="card-body">
-                            <form action="javascript:void(0)" class="form">
+                            <form action="" class="form" method="post">
+                                {% csrf_token %}
                                 <div class="row">
-                                    <div class="col-sm-6 col-12">
-                                        <div class="mb-2">
-                                            <input type="text" class="form-control" placeholder="Name"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-12">
-                                        <div class="mb-2">
-                                            <input type="email" class="form-control" placeholder="Email"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6 col-12">
-                                        <div class="mb-2">
-                                            <input type="url" class="form-control" placeholder="Website"/>
-                                        </div>
-                                    </div>
+{#                                    <div class="col-lg-6 col-12">#}
+{#                                        <div class="mb-2">#}
+{#                                            <input type="email" class="form-control" placeholder="Email"/>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <div class="col-lg-6 col-12">#}
+{#                                        <div class="mb-2">#}
+{#                                            <input type="url" class="form-control" placeholder="Website"/>#}
+{#                                        </div>#}
+{#                                    </div>#}
                                     <div class="col-12">
-                                        <textarea class="form-control mb-2" rows="4" placeholder="Comment"></textarea>
+                                        <label class="mb-1">
+                                            نظر شما:
+                                        </label>
+                                        {{ comment_form.text }}
+{#                                        <textarea class="form-control mb-2" rows="4" placeholder="Comment"></textarea>#}
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-12 mt-1">
                                         <div class="form-check mb-2">
-                                            <input type="checkbox" class="form-check-input" id="blogCheckbox"/>
-                                            <label class="form-check-label" for="blogCheckbox">Save my name, email, and website in this browser for the next time I comment.</label>
+                                            <label class="form-check-label" for="blogCheckbox">آیا این کتاب را توصیه میکنید؟ </label>
+                                            {{ comment_form.recommended }}
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                                    <div class="col-12 mt-2">
+                                        <button type="submit" class="btn btn-primary">ارسال</button>
                                     </div>
                                 </div>
                             </form>

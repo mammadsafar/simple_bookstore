@@ -3,7 +3,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 
 from .models import Book
-from .forms import CostumeBookUpdate
+from .forms import CostumeBookUpdate, CommentForm
 
 
 class BookListView(generic.ListView):
@@ -21,7 +21,19 @@ def book_detail(request, pk):
     book = get_object_or_404(Book, pk=pk)
     # get book comments
     comments = book.comments.all()
-    return render(request, 'books/book_detail.html', {'book': book, 'comments': comments})
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.book = book
+            comment.user = request.user
+            comment.save()
+            return redirect('book_detail', pk=pk)
+    else:
+        comment_form = CommentForm()
+
+    return render(request, 'books/book_detail.html', {'book': book, 'comments': comments, 'comment_form': comment_form})
 
 
 class BookCreateView(generic.CreateView):
