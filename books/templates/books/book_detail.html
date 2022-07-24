@@ -340,16 +340,16 @@
                     <h6 class="section-label mt-25">Comment</h6>
                     <div class="card">
                         <div class="card-body">
-                            <div class="d-flex align-items-start">
+                            {% for comment in comments %}
+                            <div class="d-flex align-items-start mt-2">
                                 <div class="avatar me-75">
-                                    <img src="/static/app-assets/images/portrait/small/avatar-s-9.jpg" width="38" height="38" alt="Avatar"/>
+                                    <img src="/{{ comment.user.avatar }}" width="38" height="38" alt="Avatar"/>
                                 </div>
                                 <div class="author-info">
-                                    <h6 class="fw-bolder mb-25">Chad Alexander</h6>
-                                    <p class="card-text">May 24, 2020</p>
+                                    <h6 class="fw-bolder mb-25">{{ comment.user.username }}</h6>
+                                    <p class="card-text">{{ comment.created_at|date:'Y d M' }}</p>
                                     <p class="card-text">
-                                        A variation on the question technique above, the multiple-choice question great way to engage your
-                                        reader.
+                                       {{ comment.text }}
                                     </p>
                                     {#                                    <a href="#">#}
                                     {#                                        <div class="d-inline-flex align-items-center">#}
@@ -359,6 +359,7 @@
                                     {#                                    </a>#}
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
