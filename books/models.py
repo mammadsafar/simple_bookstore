@@ -1,14 +1,11 @@
 from django.db import models
-from accounts.models import CustomUser
 from django.urls import reverse
-# from django_ckeditor_5.fields import CKEditor5Field
-# from django.db import models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+# from django.contrib.auth import get_user_model
 
+from accounts.models import CustomUser
 
-# class Post(models.Model):
-#     content = RichTextField()
 
 class Book(models.Model):
     STATUS_CHOICES = (
@@ -35,3 +32,12 @@ class Book(models.Model):
         return reverse('book_detail', args=[self.id])  # /book/1
 
 
+class Comment(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    text = models.TextField()
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text
