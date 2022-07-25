@@ -1,6 +1,7 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Book
 from .forms import CostumeBookUpdate, CommentForm
@@ -36,10 +37,12 @@ def book_detail(request, pk):
     return render(request, 'books/book_detail.html', {'book': book, 'comments': comments, 'comment_form': comment_form})
 
 
-class BookCreateView(generic.CreateView):
+class BookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Book
-    template_name = 'books/book_create.html'
+
     form_class = CostumeBookUpdate
+
+    template_name = 'books/book_create.html'
 
 
 class BookUpdateView(generic.UpdateView):
