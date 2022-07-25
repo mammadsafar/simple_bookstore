@@ -2,9 +2,9 @@ from django.db import models
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
-# from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model
 
-from accounts.models import CustomUser
+# from accounts.models import CustomUser
 
 
 class Book(models.Model):
@@ -13,6 +13,7 @@ class Book(models.Model):
         ('drf', 'Draft'),
     )
 
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     description = RichTextUploadingField()
@@ -33,7 +34,7 @@ class Book(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     book = models.ForeignKey(Book, related_name='comments', on_delete=models.CASCADE)
     text = models.TextField()
     is_active = models.BooleanField(default=True)

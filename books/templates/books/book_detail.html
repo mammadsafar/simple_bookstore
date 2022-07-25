@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="col-12 col-md-7">
                                     <h4>{{ book.title }}</h4>
-                                    <span class="card-text item-company">By <a href="#" class="company-name">{{ book.author }}</a></span>
+                                    <span class="card-text item-company">توسط <a href="#" class="company-name">{{ book.author }}</a></span>
                                     <div class="ecommerce-details-price d-flex flex-wrap mt-1">
                                         <h4 class="item-price me-1">${{ book.price }}</h4>
                                         <ul class="unstyled-list list-inline ps-1 border-start">
@@ -94,7 +94,7 @@
                                             <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
                                         </ul>
                                     </div>
-                                    <p class="card-text">Available - <span class="text-success">In stock</span></p>
+                                    <p class="card-text">ایجاد کننده : <span class="text-success">{{ book.user.username }}</span></p>
                                     <p class="card-text">
                                         {% autoescape off %}
                                             {{ book.description|linebreaks }}
