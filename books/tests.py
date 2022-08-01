@@ -43,6 +43,7 @@ class BookStoreTest(TestCase):
         )
         # login with superuser
         cls.book1 = Book.objects.create(
+            user=cls.user,
             title='اثر مرکب',
             author='دارن هاردی',
             description='A variation on the question technique above, the multiple-choice question great way to engage your reader',
@@ -51,6 +52,7 @@ class BookStoreTest(TestCase):
             status=Book.STATUS_CHOICES[0][0],  # Published
         )
         cls.book2 = Book.objects.create(
+            user=cls.user,
             title='اثر مرکب 2',
             author='دارن هاردی 2',
             description='A variation on the question technique above, the multiple-choice question great way to engage your reader 22',
