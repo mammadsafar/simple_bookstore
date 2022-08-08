@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^%9@h*3tfk2m44aifczf3p1=&*a&u_$$1mt(hq)c=*q%a8dl0l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'accounts',
     'pages',
     'books',
+    'shops',
 ]
 
 MIDDLEWARE = [
@@ -141,7 +142,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Static files config
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('config/static'))]
 
 # Media files config
 

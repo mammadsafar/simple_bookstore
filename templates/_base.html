@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
+<html class="loading" lang="en">
 <!-- BEGIN: Head-->
 
 <head>
@@ -17,24 +17,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/vendors/css/vendors.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/colors.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/components.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css/themes/semi-dark-layout.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css/core/menu/menu-types/horizontal-menu.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="/static/app-assets/css-rtl/custom-rtl.css">
-    <link rel="stylesheet" type="text/css" href="/static/assets/css/style-rtl.css">
+    <link rel="stylesheet" type="text/css" href="/static/app-assets/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
     <!-- END: Custom CSS-->
     {% block style %}{% endblock %}
 </head>
@@ -72,7 +72,7 @@
                                     </g>
                                 </g>
                             </svg></span>
-                <h2 class="brand-text mb-0">ترم بوک</h2>
+                <h2 class="brand-text mb-0">Alex</h2>
             </a></li>
         </ul>
     </div>
@@ -93,20 +93,20 @@
                         <span class="user-name fw-bolder">
                          {{ user.username }}
                         </span>
-                    <span class="user-status">ادمین</span></div>
+                    <span class="user-status">admin</span></div>
                 <span class="avatar"><img class="round" src="/media/{{ user.avatar }}" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
 
             </a>
                     {% else %}
-                        <a href="{% url 'login' %}">ورود</a> | <a href="{% url 'signup' %}">ثبت نام</a>
+                        <a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">SignUp</a>
                     {% endif %}
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
 {#                    <a class="dropdown-item" href="#"><i class="me-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="mail"></i> Inbox</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="check-square"></i> Task</a><a class="dropdown-item" href="#"><i class="me-50" data-feather="message-square"></i> Chats</a>#}
 {#                    <div class="dropdown-divider"></div>#}
 {#                    <a class="dropdown-item" href="#"><i class="me-50" data-feather="settings"></i> Settings</a>#}
 {#                    <a class="dropdown-item" href="#"><i class="me-50" data-feather="credit-card"></i> Pricing</a>#}
-                    <a class="dropdown-item" href="{% url 'password_change' %}"><i class="me-50" data-feather="help-circle"></i> تغییر گذرواژه</a>
-                    <a class="dropdown-item" href="{% url 'logout' %}"><i class="me-50" data-feather="power"></i> خروج</a>
+                    <a class="dropdown-item" href="{% url 'password_change' %}"><i class="me-50" data-feather="help-circle"></i>Change password</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}"><i class="me-50" data-feather="power"></i> Logout</a>
                 </div>
             </li>
         </ul>
@@ -120,7 +120,7 @@
     <div class="header-navbar navbar-expand-sm navbar navbar-horizontal floating-nav navbar-light navbar-shadow menu-border container-xxl" role="navigation" data-menu="menu-wrapper" data-menu-type="floating-nav">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item me-auto"><a class="navbar-brand" href="/static/html/rtl/horizontal-menu-template/index.html"><span class="brand-logo">
+                <li class="nav-item me-auto"><a class="navbar-brand" href="/static/html/horizontal-menu-template/index.html"><span class="brand-logo">
                                 <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24">
                                     <defs>
                                         <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
@@ -144,7 +144,7 @@
                                         </g>
                                     </g>
                                 </svg></span>
-                    <h2 class="brand-text mb-0">ترم بوک</h2>
+                    <h2 class="brand-text mb-0">Alex</h2>
                 </a></li>
                 <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i></a></li>
             </ul>

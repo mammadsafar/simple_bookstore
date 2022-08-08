@@ -2,7 +2,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
+<html class="loading" lang="en">
 <!-- BEGIN: Head-->
 
 <head>
@@ -19,33 +19,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/vendors/css/vendors-rtl.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/vendors/css/vendors.min.css' %}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/bootstrap-extended.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/colors.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/components.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/themes/dark-layout.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/themes/bordered-layout.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/themes/semi-dark-layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/bootstrap-extended.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/colors.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/components.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/themes/dark-layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/themes/bordered-layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/themes/semi-dark-layout.css' %}">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/plugins/forms/form-validation.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/pages/authentication.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/core/menu/menu-types/horizontal-menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/plugins/forms/form-validation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/pages/authentication.css' %}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/custom-rtl.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/style-rtl.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/style.css' %}">
     <!-- END: Custom CSS-->
 
     <link rel="stylesheet" type="text/css" href="{% static '/app-assets/vendors/css/pickers/pickadate/pickadate.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/plugins/forms/pickers/form-flat-pickr.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/plugins/forms/pickers/form-pickadate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/plugins/forms/pickers/form-flat-pickr.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/plugins/forms/pickers/form-pickadate.css' %}">
 
 
 </head>
@@ -91,11 +91,11 @@
                                         </g>
                                     </g>
                                 </svg>
-                                <h2 class="brand-text text-primary ms-1">جاذبه</h2>
+                                <h2 class="brand-text text-primary ms-1">Alex</h2>
                             </a>
 
-                            <h4 class="card-title mb-1">از این جا مسیرتو پیدا کن 🚀</h4>
-                            <p class="card-text mb-2">مدیریت برنامه خود را آسان و سرگرم کننده کنید!</p>
+                            <h4 class="card-title mb-1">Find your way from here 🚀</h4>
+                            <p class="card-text mb-2">Make managing your app easy and fun!</p>
                             {#                            <form class="auth-register-form mt-2" action="" method="POST" enctype="multipart/form-data">#}
                             {#                                {% csrf_token %}#}
                             {#                                {{ form|crispy }}#}
@@ -107,21 +107,21 @@
                             <form class="auth-register-form mt-2" action="" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="mb-1">
-                                    <label for="register-username" class="form-label">نام کاربری</label>
+                                    <label for="register-username" class="form-label">Username</label>
                                     <div class="input-group input-group-merge form-password-toggle">
 
                                         {{ form.username }}
                                     </div>
                                 </div>
                                 <div class="mb-1">
-                                    <label for="register-email" class="form-label">ایمیل</label>
+                                    <label for="register-email" class="form-label">Email</label>
                                     <div class="input-group input-group-merge">
 
                                         {{ form.email }}
                                     </div>
                                 </div>
                                 <div class="mb-1">
-                                    <label for="register-email" class="form-label">گذرواژه</label>
+                                    <label for="register-email" class="form-label">Password</label>
                                     <div class="input-group input-group-merge form-password-toggle">
 
                                         {{ form.password1 }}
@@ -130,7 +130,7 @@
                                 </div>
 
                                 <div class="mb-1">
-                                    <label for="register-password" class="form-label">تایید گذروژاٰه</label>
+                                    <label for="register-password" class="form-label">Confirm password</label>
 
                                     <div class="input-group input-group-merge form-password-toggle">
                                         {{ form.password2 }}
@@ -139,7 +139,7 @@
                                 </div>
 
                                 <div class="mb-1">
-                                    <label for="register-email" class="form-label">موبایل</label>
+                                    <label for="register-email" class="form-label">Phone</label>
                                     <div class="input-group input-group-merge">
 
                                         {{ form.phone_number }}
@@ -148,7 +148,7 @@
                                 </div>
 
                                 <div class="mb-1">
-                                    <label for="register-email" class="form-label">تاریخ تولد</label>
+                                    <label for="register-email" class="form-label">Birthdate</label>
                                     <div class="input-group input-group-merge">
 
                                         {{ form.date_of_birth }}
@@ -157,7 +157,7 @@
                                 </div>
 
                                 <div class="mb-1">
-                                    <label for="register-email" class="form-label">تصویر پروفایل</label>
+                                    <label for="register-email" class="form-label">Avatar</label>
                                     <div class="input-group input-group-merge">
 
                                         {{ form.avatar }}
@@ -170,38 +170,37 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="register-privacy-policy" tabindex="4"/>
                                         <label class="form-check-label" for="register-privacy-policy">
-                                            من <a href="#">قوانین</a> سایت رو مطالعه کردم و با آنها موافقم.
-                                        </label>
+                                            I have read the <a href="#">rules</a> of the site and I agree with them. </label>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary w-100" tabindex="5" type="submit">ثبت نام</button>
+                                <button class="btn btn-primary w-100" tabindex="5" type="submit">Register</button>
                             </form>
 
                             <p class="text-center mt-2">
-                                <span>حساب کاربری دارید؟</span>
+                                <span>Have account?</span>
                                 <a href="{% url 'login' %}">
-                                    <span>ورود به حساب کاربری</span>
+                                    <span>login</span>
                                 </a>
                             </p>
 
-                            <div class="divider my-2">
-                                <div class="divider-text">عضویت از طریق حساب‌های کاربری دیگر</div>
-                            </div>
-
-                            <div class="auth-footer-btn d-flex justify-content-center">
-                                <a href="#" class="btn btn-facebook">
-                                    <i data-feather="facebook"></i>
-                                </a>
-                                <a href="#" class="btn btn-twitter white">
-                                    <i data-feather="twitter"></i>
-                                </a>
-                                <a href="#" class="btn btn-google">
-                                    <i data-feather="mail"></i>
-                                </a>
-                                <a href="#" class="btn btn-github">
-                                    <i data-feather="github"></i>
-                                </a>
-                            </div>
+{#                            <div class="divider my-2">#}
+{#                                <div class="divider-text">عضویت از طریق حساب‌های کاربری دیگر</div>#}
+{#                            </div>#}
+{##}
+{#                            <div class="auth-footer-btn d-flex justify-content-center">#}
+{#                                <a href="#" class="btn btn-facebook">#}
+{#                                    <i data-feather="facebook"></i>#}
+{#                                </a>#}
+{#                                <a href="#" class="btn btn-twitter white">#}
+{#                                    <i data-feather="twitter"></i>#}
+{#                                </a>#}
+{#                                <a href="#" class="btn btn-google">#}
+{#                                    <i data-feather="mail"></i>#}
+{#                                </a>#}
+{#                                <a href="#" class="btn btn-github">#}
+{#                                    <i data-feather="github"></i>#}
+{#                                </a>#}
+{#                            </div>#}
                         </div>
                     </div>
                     <!-- /Register basic -->

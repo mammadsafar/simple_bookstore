@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html class="loading" lang="en" data-textdirection="rtl">
+<html class="loading" lang="en" >
 <!-- BEGIN: Head-->
 
 <head>
@@ -10,33 +10,33 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>صفحه ورود</title>
+    <title>Login Page</title>
     <link rel="apple-touch-icon" href="{% static '/app-assets/images/ico/apple-icon-120.png' %}">
     <link rel="shortcut icon" type="image/x-icon" href="{% static '/app-assets/images/ico/favicon.ico' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/vendors/css/vendors-rtl.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/vendors/css/vendors.min.css' %}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/bootstrap-extended.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/colors.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/components.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/themes/dark-layout.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/themes/bordered-layout.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/themes/semi-dark-layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/bootstrap-extended.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/colors.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/components.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/themes/dark-layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/themes/bordered-layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/themes/semi-dark-layout.css' %}">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/plugins/forms/form-validation.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/pages/authentication.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/core/menu/menu-types/horizontal-menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/plugins/forms/form-validation.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/pages/authentication.css' %}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css-rtl/custom-rtl.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/style-rtl.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app-assets/css/custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/assets/css/style.css' %}">
     <!-- END: Custom CSS-->
 
 </head>
@@ -82,26 +82,26 @@
                                         </g>
                                     </g>
                                 </svg>
-                                <h2 class="brand-text text-primary ms-1">جاذبه</h2>
+                                <h2 class="brand-text text-primary ms-1">Alex</h2>
                             </a>
 
-                            <h4 class="card-title mb-1">به جاذبه خوش آمدید! 👋</h4>
-                            <p class="card-text mb-2">لطفا وارد حساب کاربری خود شوید</p>
+                            <h4 class="card-title mb-1">Wellcome to Alex Site! 👋</h4>
+                            <p class="card-text mb-2">Please login to your account</p>
                             <form class="auth-login-form mt-2" action="" method="post">
 {#                                {{ form.errors.as_ul }}#}
                                 {{ form.non_field_errors.as_ul }}
                                 {% csrf_token %}
                                 <div class="mb-1">
-                                    <label for="login-email" class="form-label">نام کاربری</label>
+                                    <label for="login-email" class="form-label">Username</label>
                                     {{ form.username }}
                                     {#                                        <input type="text" class="form-control" id="login-email" name="login-email" placeholder="john@example.com" aria-describedby="login-email" tabindex="1" autofocus />#}
                                 </div>
 
                                 <div class="mb-1">
                                     <div class="d-flex justify-content-between">
-                                        <label class="form-label" for="login-password">گذرواژه</label>
+                                        <label class="form-label" for="login-password">Password</label>
                                         <a href="{% url 'password_reset' %}">
-                                            <small>رمز عبور خود را فراموش کرده‌اید؟</small>
+                                            <small>Forget Password?</small>
                                         </a>
                                     </div>
                                     <div class="input-group input-group-merge form-password-toggle">
@@ -114,37 +114,37 @@
                                 <div class="mb-1">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="remember-me" tabindex="3"/>
-                                        <label class="form-check-label" for="remember-me"> مرا به خاطر بسپار </label>
+                                        <label class="form-check-label" for="remember-me"> Remember me </label>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary w-100" tabindex="4" type="submit">ورود</button>
+                                <button class="btn btn-primary w-100" tabindex="4" type="submit">Login</button>
                             </form>
 
                             <p class="text-center mt-2">
-                                <span>حساب کاربری ندارید؟</span>
+                                <span>Have account?</span>
                                 <a href="{% url 'signup' %}">
-                                    <span>عضویت در جاذبه</span>
+                                    <span>SignUp</span>
                                 </a>
                             </p>
 
-                            <div class="divider my-2">
-                                <div class="divider-text">ورود از طریق حساب‌های کاربری دیگر</div>
-                            </div>
-
-                            <div class="auth-footer-btn d-flex justify-content-center">
-                                <a href="#" class="btn btn-facebook">
-                                    <i data-feather="facebook"></i>
-                                </a>
-                                <a href="#" class="btn btn-twitter white">
-                                    <i data-feather="twitter"></i>
-                                </a>
-                                <a href="#" class="btn btn-google">
-                                    <i data-feather="mail"></i>
-                                </a>
-                                <a href="#" class="btn btn-github">
-                                    <i data-feather="github"></i>
-                                </a>
-                            </div>
+{#                            <div class="divider my-2">#}
+{#                                <div class="divider-text">ورود از طریق حساب‌های کاربری دیگر</div>#}
+{#                            </div>#}
+{##}
+{#                            <div class="auth-footer-btn d-flex justify-content-center">#}
+{#                                <a href="#" class="btn btn-facebook">#}
+{#                                    <i data-feather="facebook"></i>#}
+{#                                </a>#}
+{#                                <a href="#" class="btn btn-twitter white">#}
+{#                                    <i data-feather="twitter"></i>#}
+{#                                </a>#}
+{#                                <a href="#" class="btn btn-google">#}
+{#                                    <i data-feather="mail"></i>#}
+{#                                </a>#}
+{#                                <a href="#" class="btn btn-github">#}
+{#                                    <i data-feather="github"></i>#}
+{#                                </a>#}
+{#                            </div>#}
                         </div>
                     </div>
                     <!-- /Login basic -->
